@@ -8,6 +8,7 @@ class Program
         List<Libro> libros = new List<Libro>();
         int siguienteId = 1;
 
+
         void RegistrarLibro(string titulo, string autor)
         {
             foreach (Libro l in libros)
@@ -25,6 +26,7 @@ class Program
             Console.WriteLine("Libro registrado correctamente.");
         }
 
+   
         void PrestarLibro(string titulo, string usuario)
         {
             foreach (Libro l in libros)
@@ -47,6 +49,7 @@ class Program
             Console.WriteLine("Libro no encontrado.");
         }
 
+
         void MostrarLibrosDisponibles()
         {
             Console.WriteLine("\nLibros disponibles:");
@@ -59,13 +62,32 @@ class Program
             }
         }
 
+
         RegistrarLibro("El Principito", "Antoine de Saint-Exupéry");
         RegistrarLibro("Cien años de soledad", "Gabriel García Márquez");
 
+
         MostrarLibrosDisponibles();
+
 
         PrestarLibro("El Principito", "Ana");
 
+
         MostrarLibrosDisponibles();
+
+        Usuario user1 = new Usuario("Carlos", "1234567890123", "clave123");
+
+        Console.WriteLine("\nAutenticación de usuario:");
+        Console.Write("Ingresa contraseña para Carlos: ");
+        string intento = Console.ReadLine();
+
+        if (user1.Autenticar(intento))
+        {
+            Console.WriteLine("Acceso concedido.");
+        }
+        else
+        {
+            Console.WriteLine("Contraseña incorrecta.");
+        }
     }
 }
